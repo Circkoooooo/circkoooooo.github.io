@@ -1,0 +1,34 @@
+.home {
+	max-width: 40rem;
+	padding: 40px;
+	margin: auto;
+}
+
+.home>header {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.home>aside {
+	margin-top: 40px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	opacity: 0.6;
+}
+
+.home>main {
+	margin-top: 80px;
+}
+
+article {
+	cursor: pointer;
+	border: 2px solid #0ca678;
+	min-width: fit-content;
+	padding: 20px;
+	border-radius: 4px;
+	margin: 10px 0;
+}
+
+article>header>h2 {
+	margin-bottom: 10px;
+}
