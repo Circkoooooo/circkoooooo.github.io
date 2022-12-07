@@ -1,34 +1,23 @@
-.home {
-	max-width: 40rem;
-	padding: 40px;
-	margin: auto;
-}
-
-.home>header {
-	font-size: 2rem;
-	font-weight: bold;
-}
-
-.home>aside {
-	margin-top: 40px;
-	font-size: 0.8rem;
-	font-weight: bold;
-	opacity: 0.6;
-}
-
-.home>main {
-	margin-top: 80px;
-}
-
 article {
 	cursor: pointer;
-	border: 2px solid #0ca678;
 	min-width: fit-content;
-	padding: 20px;
+	padding: 10px 20px;
 	border-radius: 4px;
-	margin: 10px 0;
+	margin: 18px 0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.1);
+	transition: all ease-in-out 0.15s;
 }
 
-article>header>h2 {
+article>header>a>h2 {
+	font-size: 1rem;
 	margin-bottom: 10px;
+}
+
+article:hover,
+article:active {
+	border-width: 2px;
+	border-color: #0CA678;
+	box-shadow: none;
+	margin: 20px 0;
 }

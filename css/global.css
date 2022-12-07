@@ -6,7 +6,51 @@ html {
 	background-color: #f0f0f0;
 }
 
+@font-face {
+	font-family: "Jetbrains mono";
+	src: url("/font/JetBrainsMono-Regular.ttf");
+}
+
+body {
+	font-family: "Jetbrains mono";
+}
+
 * {
 	margin: 0;
 	padding: 0;
+}
+
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+
+.container {
+	max-width: 40rem;
+	margin: auto;
+	padding: 40px;
+}
+
+.container>header {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.container>aside {
+	margin-top: 20px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	opacity: 0.6;
+}
+
+.container>main {
+	margin-top: 80px;
+}
+
+@media screen and (max-width:768px) {
+	.container {
+		padding: 20px;
+	}
 }
