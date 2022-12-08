@@ -3,20 +3,22 @@
 }
 
 article {
-	line-height: 1.6;
 	font-size: 0.9rem;
+	color: #000;
 }
 
-p {
+article * {
+	line-height: 1.8rem;
+}
+
+article>p {
 	margin: 10px 0;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-	padding-bottom: 10px;
 }
 
-article a {
+article p a {
 	position: relative;
 	z-index: 1;
-	background-color: #fadb14;
+	background-color: #ffd591;
 	padding: 0 4px;
 	border-radius: 4px;
 }
@@ -32,12 +34,17 @@ article h3,
 article h4,
 article h5,
 article h6 {
-	margin-top: 8px;
-	width: fit-content;
+	margin-top: 20px;
 }
 
 h2 {
+	padding-top: 20px;
+	text-align: center;
+	width: 100%;
+	display: block;
+	text-align: center;
 	opacity: 0.8;
+	border-top: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 h3,
@@ -51,10 +58,20 @@ h6 {
 }
 
 .highlight {
-	background-color: #2b2b2b;
+	background-color: #f2f1f1;
 	color: #abb2bf;
 	padding: 10px;
 	border-radius: 4px;
+	margin: 8px 0;
+}
+
+code {
+	margin: 8px 0;
+	background-color: #f2f1f1;
+	color: #000;
+	font-weight: bold;
+	border-radius: 4px;
+	padding: 2px 4px;
 }
 
 .highlight * {
@@ -68,4 +85,30 @@ h6 {
 
 .code {
 	padding-left: 10px;
+}
+
+blockquote {
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border-radius: 2px;
+	margin: 20px 0;
+}
+
+ol,
+ul {
+	margin: 10px 0 10px 30px;
+}
+
+.headerlink {
+	position: relative;
+}
+
+.headerlink::after {
+	margin-right: 10px;
+	content: "#";
+	color: #ffd591;
+}
+
+em {
+	opacity: 0.4;
 }

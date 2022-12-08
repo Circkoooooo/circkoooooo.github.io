@@ -9,15 +9,25 @@ article {
 	transition: all ease-in-out 0.15s;
 }
 
-article>header>a>h2 {
-	font-size: 1rem;
-	margin-bottom: 10px;
-}
-
 article:hover,
 article:active {
 	border-width: 2px;
 	border-color: #0CA678;
 	box-shadow: none;
 	margin: 20px 0;
+}
+
+.tags {
+	margin: 8px 0;
+}
+
+.tag-link {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	padding: 2px 4px;
+	font-size: 0.8rem;
+}
+
+.tag-count {
+	display: none;
 }

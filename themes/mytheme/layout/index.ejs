@@ -17,26 +17,43 @@
 <body>
 	<div class="home">
 		<% page.posts.each(post=>{ %>
-			<article>
+			<article onclick="link('<%- post.path%>')">
 				<header>
-					<a href="<%= url_for(post.path) %> ">
-						<h2>
-							<%= post.title
-								%>
-						</h2>
-						<small>
-							<%- date(
-								post.date
-								, 'YYYY/MM/DD HH:mm'
-								)
-								%>
-						</small>
-					</a>
+					<h2>
+						<%= post.title
+							%>
+					</h2>
+					<small>
+						<%- date(
+							post.date
+							, 'YYYY/MM/DD HH:mm'
+							)
+							%>
+					</small>
+					<div class="tags">
+						<%- list_tags(site.tags,
+							{class: 'tag'
+							,
+							style:
+							false,
+							separator: ' '
+							})
+							%>
+					</div>
 				</header>
 			</article>
 			<% });
 				%>
 	</div>
+
+	<script>
+		const link = (url) => {
+			const e = document.createElement("a");
+			e.href = url;
+			e.click();
+			e = null;
+		};
+	</script>
 </body>
 
 </html>
