@@ -11,6 +11,11 @@
   
   <title>
     
+      Post请求的Content-Type字段与js数据结构 
+      
+      
+      |
+    
      One-Circle
   </title>
 
@@ -101,43 +106,167 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="Post请求的Content-Type字段与js数据结构">
-        <div class="time-m-d">2022-12-12</div>
-        <div class="title">
-          <a href="/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-            
-              
-                <span>Post请求的Content-Type字段与js数据结构</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Post请求的Content-Type字段与js数据结构</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2022-12-12 12:50:10
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/javascript/" title="javascript">
+                    #javascript
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%9F%BA%E7%A1%80/" title="基础">
+                    #基础
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="总结兼容前后端拖拽排序中的知识点">
-        <div class="time-m-d">2022-12-08</div>
-        <div class="title">
-          <a href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">
+      <div class="markdown-body">
+        <p>在使用fetch或者XMLHttpRequest，或者封装好的一些Http请求的工具的时候，如果我们发送POST请求，通常会携带一些数据在请求头的Body中，这时我们需要在Content-Type字段中去指定对应的编码标头来让接收端区分用哪种方式去解析。</p>
+<p>大多数情况下我们会发送的有（默认格式）表单数据编码格式，json等等。</p>
+<h2 id="默认表单数据格式（x-www-form-urlencoded）"><a href="#默认表单数据格式（x-www-form-urlencoded）" class="headerlink" title="默认表单数据格式（x-www-form-urlencoded）"></a>默认表单数据格式（x-www-form-urlencoded）</h2><p>如果传输数据是form表单格式，则Content-Type可以省略。<br>发送格式则是如<code>param=value&amp;param2=value2</code>的形式。</p>
+<h3 id="怎么传输该格式的数据？"><a href="#怎么传输该格式的数据？" class="headerlink" title="怎么传输该格式的数据？"></a>怎么传输该格式的数据？</h3><ol>
+<li>html中post表单提交<br>html中使用post表单，提交表单后请求中将会携带该数据格式的body。<strong>但是如果我们需要使用ajax，那我们可能会在js中处理请求，也会在js中来组合数据，所以可能需要使用另外的方式，也就是下面的UrlSearchParams</strong>。</li>
+<li>FormData<br>在js中封装了FormData这样一个类，<code>const data = new FormData()</code>创建，可以通过<code>data.append(name,value,[filename])</code>来设置值,其中value可以是form表单中对应的格式，而不是限制于string类型。</li>
+<li>UrlSearchParams<br>它和formdata比较类似，不过它通常用于get请求，因为它传输的数据为query形式，也就是<code>param=value&amp;parama2=value2</code>…<br><code>const params = new UrlSearchParams</code>创建，通常使用<code>params.append()</code>来添加key-value值，<code>params.get()</code>来获取key-value值，更详细可以去mdn查看。</li>
+</ol>
+<h2 id="JSON格式（application-x2F-json）"><a href="#JSON格式（application-x2F-json）" class="headerlink" title="JSON格式（application&#x2F;json）"></a>JSON格式（application&#x2F;json）</h2><p><code>json是用于前后端分离的很常见的一个数据格式，所以在前后端可以很方便的通过json的规则去解析或者合成json。</code></p>
+<ol>
+<li><p>Content-Type对应值<br><code>application/json;chatset=UTF-8</code></p>
+</li>
+<li><p>在js中使用JSON类中提供的<code>stringify</code>和<code>parse</code>函数就能将一个对象转成json格式（这里不考虑循环引用之类的问题），或者将json转化成一个对象形式。</p>
+</li>
+</ol>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>总结兼容前后端拖拽排序中的知识点</span>
-              
+              <a href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
             
-          </a>
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2022-12-12 12:50:10
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/javascript/" title="javascript">
+                        #javascript
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%9F%BA%E7%A1%80/" title="基础">
+                        #基础
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%EF%BC%88x-www-form-urlencoded%EF%BC%89"><span class="toc-text">默认表单数据格式（x-www-form-urlencoded）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E4%BC%A0%E8%BE%93%E8%AF%A5%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%9F"><span class="toc-text">怎么传输该格式的数据？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON%E6%A0%BC%E5%BC%8F%EF%BC%88application-x2F-json%EF%BC%89"><span class="toc-text">JSON格式（application&#x2F;json）</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
-</div>
+
 
         
 <div class="footer">
@@ -392,6 +521,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84 + '&url=' + https%3A%2F%2Fcirckoooooo.github.io%2Fblog%2F2022%2F12%2F12%2FPost%25E8%25AF%25B7%25E6%25B1%2582%25E7%259A%2584Content-Type%25E5%25AD%2597%25E6%25AE%25B5%25E4%25B8%258Ejs%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://circkoooooo.github.io/blog/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

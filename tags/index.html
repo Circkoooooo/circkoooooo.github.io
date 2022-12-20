@@ -11,6 +11,11 @@
   
   <title>
     
+      Tag 
+      
+      
+      |
+    
      One-Circle
   </title>
 
@@ -101,43 +106,55 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="Post请求的Content-Type字段与js数据结构">
-        <div class="time-m-d">2022-12-12</div>
-        <div class="title">
-          <a href="/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-            
-              
-                <span>Post请求的Content-Type字段与js数据结构</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="总结兼容前后端拖拽排序中的知识点">
-        <div class="time-m-d">2022-12-08</div>
-        <div class="title">
-          <a href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">
-            
-              
-                <span>总结兼容前后端拖拽排序中的知识点</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+  <!-- 标签页 url形式：https://yoursite/tags/ -->
+  <div class="container tag-index">
+    <div>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E7%8E%B0/" rel="tag">实现</a><span class="tag-list-count">1</span></li></ul>
+    </div>
   </div>
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
-</div>
+  
+
+  
+
+  
+
+  
+
+  
 
         
 <div class="footer">
@@ -392,6 +409,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + tags + '&url=' + https%3A%2F%2Fcirckoooooo.github.io%2Fblog%2Ftags%2Findex.html + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://circkoooooo.github.io/blog/tags/index.html" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
