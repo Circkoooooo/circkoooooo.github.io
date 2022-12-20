@@ -103,7 +103,7 @@ theme: leedom
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://https://github.com/Circkoooooo/circkoooooo.github.io
+  repo: https://github.com/Circkoooooo/circkoooooo.github.io
   branch: gh-pages
 
 
