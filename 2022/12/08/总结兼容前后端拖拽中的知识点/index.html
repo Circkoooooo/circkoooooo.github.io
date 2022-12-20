@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html lang="en">
 
   <head>
   <meta charset="utf-8">
@@ -14,9 +14,7 @@
       总结兼容前后端拖拽排序中的知识点 
       
       
-      |
     
-     One-Circle
   </title>
 
   
@@ -25,159 +23,81 @@
   
 
   <!-- Raleway-Font -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
 
   <!-- hexo site css -->
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
-  <!-- 代码块风格 -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/post.css">
+
   
 
   <!-- jquery3.3.1 -->
-  
-    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
-  
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- fancybox -->
-  
-    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
-    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
-  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
   
 <script src="/js/fancybox.js"></script>
 
 
-  
-
-  
-
-  <script>
-    var html = document.documentElement
-    const colorMode = localStorage.getItem('color-mode')
-    if (colorMode) {
-      document.documentElement.setAttribute('color-mode', colorMode)
-    }
-  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 
   <body>
     <div id="app">
       <div class="header">
-  <div class="avatar">
-    <a href="/">
-      <!-- 头像取消懒加载，添加no-lazy -->
-      
-        <img src="/images/avatar.png" alt="">
-      
-    </a>
-    <div class="nickname"><a href="/">Circkoooooo</a></div>
-  </div>
-  <div class="navbar">
-    <ul>
-      
-        <li class="nav-item" data-path="/">
-          <a href="/">Home</a>
-        </li>
-      
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">Archives</a>
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
-        <li class="nav-item" data-path="/friends/">
-          <a href="/friends/">Friends</a>
-        </li>
-      
-        <li class="nav-item" data-path="/about/">
-          <a href="/about/">About</a>
-        </li>
-      
-    </ul>
-  </div>
+  <a href="/">Circkoooooo</a>
 </div>
 
 
-<script src="/js/activeNav.js"></script>
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="github" target="_blank" href="https://github.com/circkoooooo">
+      <i class="iconfont icon-github"></i>
+    </a>
+  
+</p>
 
 
-
-      <div class="flex-container">
+      <div class="main">
         <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
 <!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-
-  <!-- LaTex Display -->
-
-  
-    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
-  
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
     }
-  </script>
+  };
+</script>
 
-
-
-
-
-  <!-- clipboard -->
-
-  
-    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">总结兼容前后端拖拽排序中的知识点</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2022-12-08 12:04:55
-        </span>
-        
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/javascript/" title="javascript">
-                    #javascript
-                  </a>
-                </span>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/%E5%AE%9E%E7%8E%B0/" title="实现">
-                    #实现
-                  </a>
-                </span>
-                
-              </span>
-          
-      </div>
-      <div class="markdown-body">
-        <p>实现一个拖拽，可以利用<strong>dragable</strong>，但是显然dragable不能在移动端触发，于是使用移动端触发的touch事件来实现。</p>
+<div class="post">
+  <h3 class="date">
+    Dec 08, 2022
+  </h3>
+  <h1>
+    总结兼容前后端拖拽排序中的知识点
+  </h1>
+  <div class="content markdown-body">
+    <p>实现一个拖拽，可以利用<strong>dragable</strong>，但是显然dragable不能在移动端触发，于是使用移动端触发的touch事件来实现。</p>
 <h2 id="基本变量初始化"><a href="#基本变量初始化" class="headerlink" title="基本变量初始化"></a>基本变量初始化</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	isClick:false,</span><br><span class="line">	currentElement:null,</span><br><span class="line">	clickPosition:&#123;</span><br><span class="line">		x:-1,</span><br><span class="line">		y:-1</span><br><span class="line">	&#125;,</span><br><span class="line">	currentOffset:&#123;</span><br><span class="line">		x:0,</span><br><span class="line">		y:0</span><br><span class="line">	&#125;,</span><br><span class="line">	sortable:false,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="在非触摸屏端浏览器的实现"><a href="#在非触摸屏端浏览器的实现" class="headerlink" title="在非触摸屏端浏览器的实现"></a>在非触摸屏端浏览器的实现</h2><h3 id="对元素拖拽执行的时机"><a href="#对元素拖拽执行的时机" class="headerlink" title="对元素拖拽执行的时机"></a>对元素拖拽执行的时机</h3><p>什么时候需要对一个元素进行拖拽操作？元素被点击。</p>
@@ -213,116 +133,33 @@
 </ol>
 <h3 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h3><p>根据特殊点中提到的，剩余的内容和非触摸屏基本操作流程基本一致。</p>
 
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2022-12-08 12:04:55
-            </span>
-            
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/javascript/" title="javascript">
-                        #javascript
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/%E5%AE%9E%E7%8E%B0/" title="实现">
-                        #实现
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-          </div>
-          <div class="post-foot-prev">
-            
-              <a href="/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-    </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">基本变量初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E9%9D%9E%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">在非触摸屏端浏览器的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%85%83%E7%B4%A0%E6%8B%96%E6%8B%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="toc-text">对元素拖拽执行的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%96%E5%8A%A8%E5%85%83%E7%B4%A0%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">拖动元素并排序执行的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mousedown"><span class="toc-text">mousedown</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mousemove"><span class="toc-text">mousemove</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#moveup"><span class="toc-text">moveup</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E9%9D%9E%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">在非触摸屏端浏览器中的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E8%A7%A6%E6%91%B8%E5%B1%8F%E5%AF%B9%E5%BA%94%E6%9B%BF%E6%8D%A2%E7%9A%84%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-text">非触摸屏对应替换的监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%82%B9"><span class="toc-text">特殊点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">执行过程</span></a></li></ol></li></ol>
-      
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
-
-    
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-      </div>
-    
-  </div>
-
-
-        
-<div class="footer">
-  <div class="social">
-    <ul>
-      
-        <li>
-          <a title="github" target="_blank" rel="noopener" href="https://github.com/Circkoooooo">
-            <i class="iconfont icon-github"></i>
-          </a>
-        </li>
-      
-    </ul>
   </div>
   
     
+        
+          <a id="newer" class="blog-nav" href="/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">&lt;&nbsp;NEWER</a>
+          
+            
+</div>
+        <div class="footer">
+  
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2022 Oranges</a>
+        <a target="_blank" rel="noopener" href="https://github.com/Circkoooooo">Copyright © Circkoooooo 2022</a>
         
     </div>
   
-    
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
         
     </div>
-  
   
 </div>
 
       </div>
 
-      <div class="tools-bar">
-        <div class="back-to-top tools-bar-item hidden">
+      <div class="back-to-top hidden">
   <a href="javascript: void(0)">
     <i class="iconfont icon-chevronup"></i>
   </a>
@@ -333,8 +170,8 @@
 
 
 
-        
-  <div class="search-icon tools-bar-item" id="search-icon">
+      
+  <div class="search-icon" id="search-icon">
     <a href="javascript: void(0)">
       <i class="iconfont icon-search"></i>
     </a>
@@ -342,22 +179,24 @@
 
   <div class="search-overlay hidden">
     <div class="search-content" tabindex="0">
-      <div class="search-title">
-        <span class="search-icon-input">
-          <a href="javascript: void(0)">
-            <i class="iconfont icon-search"></i>
-          </a>
-        </span>
-        
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
-        
-        <span class="search-close-icon" id="search-close-icon">
-          <a href="javascript: void(0)">
-            <i class="iconfont icon-close"></i>
-          </a>
-        </span>
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="$ grep...">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
+        </div>
+        <div class="search-result" id="search-result"></div>
       </div>
-      <div class="search-result" id="search-result"></div>
     </div>
   </div>
 
@@ -365,10 +204,10 @@
     var inputArea = document.querySelector("#search-input")
     var searchOverlayArea = document.querySelector(".search-overlay")
 
-    inputArea.onclick = function() {
-      getSearchFile()
-      this.onclick = null
-    }
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
 
     inputArea.onkeydown = function() {
       if(event.keyCode == 13)
@@ -380,7 +219,8 @@
       if (isHidden) {
         searchOverlayArea.classList.remove('hidden')
         document.body.classList.add('hidden')
-        // inputArea.focus()
+        inputArea.focus()
+        getSearchFile()
       } else {
         searchOverlayArea.classList.add('hidden')
         document.body.classList.remove('hidden')
@@ -401,7 +241,8 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -463,7 +304,7 @@
               }
               // 0x05. show search results
               if (isMatch) {
-                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
                 var content = orig_data_content;
                 if (first_occur >= 0) {
                   // cut out 100 characters
@@ -490,9 +331,9 @@
                     match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
                   });
 
-                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
                 }
-                str += "</li>";
+                str += "<hr></li>";
               }
             });
             str += "</ul>";
@@ -505,7 +346,7 @@
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
           } else {
             $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
           }
@@ -526,46 +367,6 @@
 
 
 
-        
-  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
-    <a href="javascript: void(0)">
-      <i id="theme-icon" class="iconfont icon-moon"></i>
-    </a>
-  </div>
-
-  
-<script src="/js/colorscheme.js"></script>
-
-
-
-
-
-        
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9 + '&url=' + https%3A%2F%2Fcirckoooooo.github.io%2Fblog%2F2022%2F12%2F08%2F%25E6%2580%25BB%25E7%25BB%2593%25E5%2585%25BC%25E5%25AE%25B9%25E5%2589%258D%25E5%2590%258E%25E7%25AB%25AF%25E6%258B%2596%25E6%258B%25BD%25E4%25B8%25AD%25E7%259A%2584%25E7%259F%25A5%25E8%25AF%2586%25E7%2582%25B9%2F + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://circkoooooo.github.io/blog/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
-  
-  
-<script src="/js/shares.js"></script>
-
-
-
-      </div>
     </div>
   </body>
 </html>

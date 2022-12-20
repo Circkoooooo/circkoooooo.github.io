@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html lang="en">
 
   <head>
   <meta charset="utf-8">
@@ -14,9 +14,7 @@
       Post请求的Content-Type字段与js数据结构 
       
       
-      |
     
-     One-Circle
   </title>
 
   
@@ -25,159 +23,81 @@
   
 
   <!-- Raleway-Font -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
 
   <!-- hexo site css -->
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
-  <!-- 代码块风格 -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/post.css">
+
   
 
   <!-- jquery3.3.1 -->
-  
-    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
-  
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- fancybox -->
-  
-    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
-    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
-  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
   
 <script src="/js/fancybox.js"></script>
 
 
-  
-
-  
-
-  <script>
-    var html = document.documentElement
-    const colorMode = localStorage.getItem('color-mode')
-    if (colorMode) {
-      document.documentElement.setAttribute('color-mode', colorMode)
-    }
-  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 
   <body>
     <div id="app">
       <div class="header">
-  <div class="avatar">
-    <a href="/">
-      <!-- 头像取消懒加载，添加no-lazy -->
-      
-        <img src="/images/avatar.png" alt="">
-      
-    </a>
-    <div class="nickname"><a href="/">Circkoooooo</a></div>
-  </div>
-  <div class="navbar">
-    <ul>
-      
-        <li class="nav-item" data-path="/">
-          <a href="/">Home</a>
-        </li>
-      
-        <li class="nav-item" data-path="/archives/">
-          <a href="/archives/">Archives</a>
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          <a href="/tags/">Tags</a>
-        </li>
-      
-        <li class="nav-item" data-path="/friends/">
-          <a href="/friends/">Friends</a>
-        </li>
-      
-        <li class="nav-item" data-path="/about/">
-          <a href="/about/">About</a>
-        </li>
-      
-    </ul>
-  </div>
+  <a href="/">Circkoooooo</a>
 </div>
 
 
-<script src="/js/activeNav.js"></script>
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="github" target="_blank" href="https://github.com/circkoooooo">
+      <i class="iconfont icon-github"></i>
+    </a>
+  
+</p>
 
 
-
-      <div class="flex-container">
+      <div class="main">
         <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
 <!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-
-  <!-- LaTex Display -->
-
-  
-    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
-  
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
     }
-  </script>
+  };
+</script>
 
-
-
-
-
-  <!-- clipboard -->
-
-  
-    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">Post请求的Content-Type字段与js数据结构</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2022-12-12 12:50:10
-        </span>
-        
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/javascript/" title="javascript">
-                    #javascript
-                  </a>
-                </span>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/%E5%9F%BA%E7%A1%80/" title="基础">
-                    #基础
-                  </a>
-                </span>
-                
-              </span>
-          
-      </div>
-      <div class="markdown-body">
-        <p>在使用fetch或者XMLHttpRequest，或者封装好的一些Http请求的工具的时候，如果我们发送POST请求，通常会携带一些数据在请求头的Body中，这时我们需要在Content-Type字段中去指定对应的编码标头来让接收端区分用哪种方式去解析。</p>
+<div class="post">
+  <h3 class="date">
+    Dec 12, 2022
+  </h3>
+  <h1>
+    Post请求的Content-Type字段与js数据结构
+  </h1>
+  <div class="content markdown-body">
+    <p>在使用fetch或者XMLHttpRequest，或者封装好的一些Http请求的工具的时候，如果我们发送POST请求，通常会携带一些数据在请求头的Body中，这时我们需要在Content-Type字段中去指定对应的编码标头来让接收端区分用哪种方式去解析。</p>
 <p>大多数情况下我们会发送的有（默认格式）表单数据编码格式，json等等。</p>
 <h2 id="默认表单数据格式（x-www-form-urlencoded）"><a href="#默认表单数据格式（x-www-form-urlencoded）" class="headerlink" title="默认表单数据格式（x-www-form-urlencoded）"></a>默认表单数据格式（x-www-form-urlencoded）</h2><p>如果传输数据是form表单格式，则Content-Type可以省略。<br>发送格式则是如<code>param=value&amp;param2=value2</code>的形式。</p>
 <h3 id="怎么传输该格式的数据？"><a href="#怎么传输该格式的数据？" class="headerlink" title="怎么传输该格式的数据？"></a>怎么传输该格式的数据？</h3><ol>
@@ -193,116 +113,33 @@
 </li>
 </ol>
 
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>Prev</span>
-              </a>
-            
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2022-12-12 12:50:10
-            </span>
-            
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/javascript/" title="javascript">
-                        #javascript
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/%E5%9F%BA%E7%A1%80/" title="基础">
-                        #基础
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-          </div>
-          <div class="post-foot-prev">
-            
-          </div>
-        </div>
-      
-    </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%EF%BC%88x-www-form-urlencoded%EF%BC%89"><span class="toc-text">默认表单数据格式（x-www-form-urlencoded）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E4%BC%A0%E8%BE%93%E8%AF%A5%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%9F"><span class="toc-text">怎么传输该格式的数据？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON%E6%A0%BC%E5%BC%8F%EF%BC%88application-x2F-json%EF%BC%89"><span class="toc-text">JSON格式（application&#x2F;json）</span></a></li></ol>
-      
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
-
-    
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-      </div>
-    
-  </div>
-
-
-        
-<div class="footer">
-  <div class="social">
-    <ul>
-      
-        <li>
-          <a title="github" target="_blank" rel="noopener" href="https://github.com/Circkoooooo">
-            <i class="iconfont icon-github"></i>
-          </a>
-        </li>
-      
-    </ul>
   </div>
   
     
+      <a id="older" class="blog-nav" href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">OLDER&nbsp;&gt;</a>
+      
+        
+            
+</div>
+        <div class="footer">
+  
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2022 Oranges</a>
+        <a target="_blank" rel="noopener" href="https://github.com/Circkoooooo">Copyright © Circkoooooo 2022</a>
         
     </div>
   
-    
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
         
     </div>
-  
   
 </div>
 
       </div>
 
-      <div class="tools-bar">
-        <div class="back-to-top tools-bar-item hidden">
+      <div class="back-to-top hidden">
   <a href="javascript: void(0)">
     <i class="iconfont icon-chevronup"></i>
   </a>
@@ -313,8 +150,8 @@
 
 
 
-        
-  <div class="search-icon tools-bar-item" id="search-icon">
+      
+  <div class="search-icon" id="search-icon">
     <a href="javascript: void(0)">
       <i class="iconfont icon-search"></i>
     </a>
@@ -322,22 +159,24 @@
 
   <div class="search-overlay hidden">
     <div class="search-content" tabindex="0">
-      <div class="search-title">
-        <span class="search-icon-input">
-          <a href="javascript: void(0)">
-            <i class="iconfont icon-search"></i>
-          </a>
-        </span>
-        
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
-        
-        <span class="search-close-icon" id="search-close-icon">
-          <a href="javascript: void(0)">
-            <i class="iconfont icon-close"></i>
-          </a>
-        </span>
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="$ grep...">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
+        </div>
+        <div class="search-result" id="search-result"></div>
       </div>
-      <div class="search-result" id="search-result"></div>
     </div>
   </div>
 
@@ -345,10 +184,10 @@
     var inputArea = document.querySelector("#search-input")
     var searchOverlayArea = document.querySelector(".search-overlay")
 
-    inputArea.onclick = function() {
-      getSearchFile()
-      this.onclick = null
-    }
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
 
     inputArea.onkeydown = function() {
       if(event.keyCode == 13)
@@ -360,7 +199,8 @@
       if (isHidden) {
         searchOverlayArea.classList.remove('hidden')
         document.body.classList.add('hidden')
-        // inputArea.focus()
+        inputArea.focus()
+        getSearchFile()
       } else {
         searchOverlayArea.classList.add('hidden')
         document.body.classList.remove('hidden')
@@ -381,7 +221,8 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -443,7 +284,7 @@
               }
               // 0x05. show search results
               if (isMatch) {
-                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
                 var content = orig_data_content;
                 if (first_occur >= 0) {
                   // cut out 100 characters
@@ -470,9 +311,9 @@
                     match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
                   });
 
-                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
                 }
-                str += "</li>";
+                str += "<hr></li>";
               }
             });
             str += "</ul>";
@@ -485,7 +326,7 @@
         error: function(xhr, status, error) {
           $resultContent.innerHTML = ""
           if (xhr.status === 404) {
-            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
           } else {
             $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
           }
@@ -506,46 +347,6 @@
 
 
 
-        
-  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
-    <a href="javascript: void(0)">
-      <i id="theme-icon" class="iconfont icon-moon"></i>
-    </a>
-  </div>
-
-  
-<script src="/js/colorscheme.js"></script>
-
-
-
-
-
-        
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84 + '&url=' + https%3A%2F%2Fcirckoooooo.github.io%2Fblog%2F2022%2F12%2F12%2FPost%25E8%25AF%25B7%25E6%25B1%2582%25E7%259A%2584Content-Type%25E5%25AD%2597%25E6%25AE%25B5%25E4%25B8%258Ejs%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%2F + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://circkoooooo.github.io/blog/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
-  
-  
-<script src="/js/shares.js"></script>
-
-
-
-      </div>
     </div>
   </body>
 </html>

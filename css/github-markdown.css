@@ -4,6 +4,24 @@
     format("woff");
 }
 
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 2;
+  color: #24292e;
+/*  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+  font-size: 1.6rem;
+  line-height: 2;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .markdown-body {
+    font-size: 1.4rem;
+  }
+}
+
 .markdown-body .pl-c {
   color: #6a737d;
 }
@@ -198,17 +216,17 @@
 }
 
 .markdown-body a {
-  color: var(--color-text-a);
+  color: #666;
   text-decoration: none;
-  border-bottom: 1px solid var(--color-text-a);
+  border-bottom: 1px solid #666;
   font-size: 1em;
   transition: color 0.3s;
 }
 
 .markdown-body a:hover {
   text-decoration: none;
-  color: var(--color-text-a-hover);
-  border-bottom: 1px solid var(--color-text-a-hover);
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 .markdown-body strong {
@@ -420,9 +438,9 @@
 .markdown-body blockquote {
   /*margin: 3rem 0;*/
   padding: 15px;
-  color: var(--color-block-md-quote);
-  border-left: 0.25em solid var(--color-block-md-quote);
-  background: var(--bg-block-md-quote);
+  color: #555;
+  border-left: 0.25em solid #555;
+  background: #EEEEEE;
   border-radius: 3px;
 }
 
@@ -478,7 +496,7 @@
 .markdown-body h6 .headerlink::before {
   content: "#";
   position: absolute;
-  right: 5px;
+  right: 0;
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s, width 0.3s;
@@ -492,7 +510,7 @@
 .markdown-body h6:hover .headerlink::before {
   content: "#";
   position: absolute;
-  right: 5px;
+  right: 0;
   opacity: 1;
 }
 
@@ -607,16 +625,16 @@
 .markdown-body table th,
 .markdown-body table td {
   padding: 6px 13px;
-  border: 2px solid var(--color-border-md-table);
+  border: 1px solid #dfe2e5;
 }
 
 .markdown-body table tr {
-  background-color: var(--bg-block-md-table);
-  border-top: 2px solid var(--color-border-md-table);
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: var(--bg-block-md-table-2);
+  background-color: #f6f8fa;
 }
 
 .markdown-body img {
@@ -639,10 +657,10 @@
   padding: 3px 5px;
   margin: 0 2px;
   font-size: 85%;
-  /* font-weight: 600; */
+  font-weight: 600;
   border-radius: 3px;
-  background-color: var(--bg-text-md-code);
-  color: var(--color-text-md-code);
+  background-color: #f8f8f8;
+  color: #e96900;
 }
 
 .markdown-body pre {
@@ -675,7 +693,7 @@
   overflow: auto;
   font-size: 90%;
   line-height: 1.8;
-  background-color: var(--bg-block-md-pre);
+  background-color: #fcfcfc;
   border-radius: 5px;
 }
 
@@ -689,7 +707,6 @@
   word-wrap: normal;
   background-color: transparent;
   border: 0;
-  color: var(--color-text-md-pre)
 }
 
 .markdown-body .full-commit .btn-outline:not(:disabled):hover {
@@ -733,4 +750,16 @@
 
 .markdown-body hr {
   border-bottom-color: #eee;
+}
+
+details summary {
+  outline: none;
+  cursor: pointer;
+}
+
+figure figcaption {
+  padding-left: 1rem;
+  background-color: #1b1b1b;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

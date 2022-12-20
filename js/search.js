@@ -85,7 +85,7 @@ var searchFunc = function (path, search_id, content_id) {
           }
           // 0x05. show search results
           if (isMatch) {
-            str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+            str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
             var content = orig_data_content;
             if (first_occur >= 0) {
               // cut out 100 characters
@@ -112,9 +112,9 @@ var searchFunc = function (path, search_id, content_id) {
                 match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
               });
 
-              str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+              str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
             }
-            str += "</li>";
+            str += "<hr></li>";
           }
         });
         str += "</ul>";

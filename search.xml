@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Post请求的Content-Type字段与js数据结构</title>
+      <link href="/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <url>/2022/12/12/Post%E8%AF%B7%E6%B1%82%E7%9A%84Content-Type%E5%AD%97%E6%AE%B5%E4%B8%8Ejs%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<p>在使用fetch或者XMLHttpRequest，或者封装好的一些Http请求的工具的时候，如果我们发送POST请求，通常会携带一些数据在请求头的Body中，这时我们需要在Content-Type字段中去指定对应的编码标头来让接收端区分用哪种方式去解析。</p><p>大多数情况下我们会发送的有（默认格式）表单数据编码格式，json等等。</p><h2 id="默认表单数据格式（x-www-form-urlencoded）"><a href="#默认表单数据格式（x-www-form-urlencoded）" class="headerlink" title="默认表单数据格式（x-www-form-urlencoded）"></a>默认表单数据格式（x-www-form-urlencoded）</h2><p>如果传输数据是form表单格式，则Content-Type可以省略。<br>发送格式则是如<code>param=value&amp;param2=value2</code>的形式。</p><h3 id="怎么传输该格式的数据？"><a href="#怎么传输该格式的数据？" class="headerlink" title="怎么传输该格式的数据？"></a>怎么传输该格式的数据？</h3><ol><li>html中post表单提交<br>html中使用post表单，提交表单后请求中将会携带该数据格式的body。<strong>但是如果我们需要使用ajax，那我们可能会在js中处理请求，也会在js中来组合数据，所以可能需要使用另外的方式，也就是下面的UrlSearchParams</strong>。</li><li>FormData<br>在js中封装了FormData这样一个类，<code>const data = new FormData()</code>创建，可以通过<code>data.append(name,value,[filename])</code>来设置值,其中value可以是form表单中对应的格式，而不是限制于string类型。</li><li>UrlSearchParams<br>它和formdata比较类似，不过它通常用于get请求，因为它传输的数据为query形式，也就是<code>param=value&amp;parama2=value2</code>…<br><code>const params = new UrlSearchParams</code>创建，通常使用<code>params.append()</code>来添加key-value值，<code>params.get()</code>来获取key-value值，更详细可以去mdn查看。</li></ol><h2 id="JSON格式（application-x2F-json）"><a href="#JSON格式（application-x2F-json）" class="headerlink" title="JSON格式（application&#x2F;json）"></a>JSON格式（application&#x2F;json）</h2><p><code>json是用于前后端分离的很常见的一个数据格式，所以在前后端可以很方便的通过json的规则去解析或者合成json。</code></p><ol><li><p>Content-Type对应值<br><code>application/json;chatset=UTF-8</code></p></li><li><p>在js中使用JSON类中提供的<code>stringify</code>和<code>parse</code>函数就能将一个对象转成json格式（这里不考虑循环引用之类的问题），或者将json转化成一个对象形式。</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>总结兼容前后端拖拽排序中的知识点</title>
+      <link href="/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2022/12/08/%E6%80%BB%E7%BB%93%E5%85%BC%E5%AE%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8B%96%E6%8B%BD%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<p>实现一个拖拽，可以利用<strong>dragable</strong>，但是显然dragable不能在移动端触发，于是使用移动端触发的touch事件来实现。</p><h2 id="基本变量初始化"><a href="#基本变量初始化" class="headerlink" title="基本变量初始化"></a>基本变量初始化</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">isClick:false,</span><br><span class="line">currentElement:null,</span><br><span class="line">clickPosition:&#123;</span><br><span class="line">x:-1,</span><br><span class="line">y:-1</span><br><span class="line">&#125;,</span><br><span class="line">currentOffset:&#123;</span><br><span class="line">x:0,</span><br><span class="line">y:0</span><br><span class="line">&#125;,</span><br><span class="line">sortable:false,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="在非触摸屏端浏览器的实现"><a href="#在非触摸屏端浏览器的实现" class="headerlink" title="在非触摸屏端浏览器的实现"></a>在非触摸屏端浏览器的实现</h2><h3 id="对元素拖拽执行的时机"><a href="#对元素拖拽执行的时机" class="headerlink" title="对元素拖拽执行的时机"></a>对元素拖拽执行的时机</h3><p>什么时候需要对一个元素进行拖拽操作？元素被点击。</p><p>什么时候元素被点击呢，同时满足条件：</p><ol><li>鼠标正在元素内部</li><li>鼠标在元素内部按下</li><li>鼠标移动 -&gt; 拖拽</li></ol><h3 id="拖动元素并排序执行的过程"><a href="#拖动元素并排序执行的过程" class="headerlink" title="拖动元素并排序执行的过程"></a>拖动元素并排序执行的过程</h3><p><em>判断鼠标是否在元素内部，可以监听mousemove事件。一旦元素进入到某一个可以拖拽的元素的时候即将元素记录到变量中，不过显然这样每时每刻都触发监听会浪费大量性能。</em></p><p>于是我们可以在判断鼠标是否点击的同时来判断鼠标是否在元素内部，只要2者都满足才执行下面。</p><p>&#x2F;&#x2F;最终需要监听的事件</p><ul><li>mousedown：记录初始点击点坐标，点击状态</li><li>mousemove：记录移动点坐标，鼠标下方是否有其它元素</li><li>mouseup：点击状态取消，若满足条件则执行元素排序</li></ul><h4 id="mousedown"><a href="#mousedown" class="headerlink" title="mousedown"></a>mousedown</h4><p>首先记录<code>isClick=true</code>，从所有的可拖动节点中筛选是否存在event.target节点，如果存在，则记录<code>currentElement=event.target</code>。随后根据client可视区域来记录鼠标<code>clickPosition.x = e.clientX (Y同理)</code><br><em>如果点击状态为false或者当前节点为null，则直接不满足拖拽条件，终止后面的操作。</em></p><h4 id="mousemove"><a href="#mousemove" class="headerlink" title="mousemove"></a>mousemove</h4><ol><li>位置移动：当<code>isClick===true</code>，<code>currentElement!==null</code>，则可以计算出位移坐标<code>currentOffset.x = e.clientX - clickPosition.x（y同理）</code>。</li><li>在事件的target中如果检查到有另一个对象，此时为<code>sortable=true</code>，并对当前节点和target的样式进行对应修改。</li></ol><h4 id="moveup"><a href="#moveup" class="headerlink" title="moveup"></a>moveup</h4><p>如果满足<strong>点击状态</strong>为true，<strong>当前节点</strong>不为null，处于<strong>可交换状态</strong>，则执行一个逻辑，即使用<strong>insertBefore</strong>将当前节点插入到target中。<br><em>在insertBefore之前可以计算一下当前节点位于target之前还是之后，如果是之前可以直接insertBefore，否则可以采用appendChild父元素来实现追加到target后面。</em></p><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>一般来说，<strong>move事件都会绑定在document上</strong>，如果绑定在拖动元素上，鼠标移动快了之后鼠标可能超出元素，这样move事件就会停止触发，导致拖动不流程。</p><h2 id="在非触摸屏端浏览器中的实现"><a href="#在非触摸屏端浏览器中的实现" class="headerlink" title="在非触摸屏端浏览器中的实现"></a>在非触摸屏端浏览器中的实现</h2><h3 id="非触摸屏对应替换的监听事件"><a href="#非触摸屏对应替换的监听事件" class="headerlink" title="非触摸屏对应替换的监听事件"></a>非触摸屏对应替换的监听事件</h3><ul><li>touchstart</li><li>touchmove</li><li>touchend</li></ul><h3 id="特殊点"><a href="#特殊点" class="headerlink" title="特殊点"></a>特殊点</h3><ol><li>在touchmove中你会发现，事件对象并不能获取到当前元素target。于是有一个api<code>document.elementFromPoint:(x:number,y:number)=&gt;HTMLElement</code>，提供xy坐标，返回一个正在坐标内的最上层的一个元素。当然他的兼容性是相当不错的。</li><li>e.clientX在触摸屏中替换为<code>e.touches[0].clientX</code>，这样的含义是第一个手指按压触摸屏时候的相对于视口的距离。</li></ol><h3 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h3><p>根据特殊点中提到的，剩余的内容和非触摸屏基本操作流程基本一致。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> 实现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
