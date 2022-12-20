@@ -97,7 +97,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: oranges
+theme: leedom
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +105,11 @@ deploy:
   type: git
   repo: https://https://github.com/Circkoooooo/circkoooooo.github.io
   branch: gh-pages
+
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  
+  
